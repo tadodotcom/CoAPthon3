@@ -128,6 +128,7 @@ class OptionRegistry(object):
     PROXY_SCHEME =  OptionItem(39, "Proxy-Schema",  STRING,  False, None)
     SIZE1 =         OptionItem(60, "Size1",         INTEGER, False, None)
     NO_RESPONSE =   OptionItem(258, "No-Response",  INTEGER, False, None)
+    VENDOR_SPECIFIC_OPTION_2048 = OptionItem(2048, "Vendor-specific-option-2048",  OPAQUE, False, None)
     RM_MESSAGE_SWITCHING = OptionItem(65524, "Routing", OPAQUE, False, None)
 
     LIST = {
@@ -151,6 +152,7 @@ class OptionRegistry(object):
         39: PROXY_SCHEME,
         60: SIZE1,
         258: NO_RESPONSE,
+        2048: VENDOR_SPECIFIC_OPTION_2048,
         65524: RM_MESSAGE_SWITCHING
 
     }
