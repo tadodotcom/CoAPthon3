@@ -454,7 +454,8 @@ class Message(object):
         for e in etag:
             option = Option()
             option.number = defines.OptionRegistry.ETAG.number
-            if not  isinstance(e, bytes):
+            if isinstance(e, str):
+                # if etag was accidentally set to str, convert it to bytes
                 e = bytes(e, "utf-8")
             option.value = e
             self.add_option(option)
