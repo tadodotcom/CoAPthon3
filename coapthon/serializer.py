@@ -302,11 +302,10 @@ class Serializer(object):
         if h_nibble <= 12:
             value = h_nibble
         elif h_nibble == 13:
-            value = struct.unpack("!B", values[pos].to_bytes(1, "big"))[0] + 13
+            value = struct.unpack("!B", values[pos:pos+1])[0] + 13
             pos += 1
         elif h_nibble == 14:
-            s = struct.Struct("!H")
-            value = s.unpack_from(values[pos:].to_bytes(2, "big"))[0] + 269
+            value = struct.unpack("!H", values[pos:pos+2])[0] + 269
             pos += 2
         else:
             raise AttributeError("Unsupported option number nibble " + str(h_nibble))
@@ -314,10 +313,10 @@ class Serializer(object):
         if l_nibble <= 12:
             length = l_nibble
         elif l_nibble == 13:
-            length = struct.unpack("!B", values[pos].to_bytes(1, "big"))[0] + 13
+            length = struct.unpack("!B", values[pos:pos+1])[0] + 13
             pos += 1
         elif l_nibble == 14:
-            length = s.unpack_from(values[pos:].to_bytes(2, "big"))[0] + 269
+            length = struct.unpack("!H", values[pos:pos+2])[0] + 269
             pos += 2
         else:
             raise AttributeError("Unsupported option length nibble " + str(l_nibble))
