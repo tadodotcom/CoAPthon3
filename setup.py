@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='CoAPthon3',
+    name='coapthon',
     version='1.0.1',
     packages=['coapthon', 'coapthon.caching', 'coapthon.layers', 'coapthon.client', 'coapthon.server', 'coapthon.messages',
               'coapthon.forward_proxy', 'coapthon.resources', 'coapthon.reverse_proxy'],
